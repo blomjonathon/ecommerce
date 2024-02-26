@@ -1,5 +1,8 @@
 const { Category } = require('../models');
 
+
+//create some dummy category data
+
 const categoryData = [
   {
     category_name: 'Shirts',

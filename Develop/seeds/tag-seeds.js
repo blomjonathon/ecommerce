@@ -1,5 +1,7 @@
 const { Tag } = require('../models');
 
+//create some dummy tag data
+
 const tagData = [
   {
     tag_name: 'rock music',
@@ -11,16 +13,16 @@ const tagData = [
     tag_name: 'blue',
   },
   {
-    tag_name: 'red',
+    tag_name: 'brown',
   },
   {
     tag_name: 'green',
   },
   {
-    tag_name: 'white',
+    tag_name: 'orange',
   },
   {
-    tag_name: 'gold',
+    tag_name: 'pink',
   },
   {
     tag_name: 'pop culture',

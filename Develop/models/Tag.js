@@ -1,9 +1,10 @@
+// import need files
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
 
 class Tag extends Model {}
 
+// create a Tag model
 Tag.init(
   {
     id: {
