@@ -15,13 +15,13 @@ router.get('/:id', async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id, { include: Product });
     if (!category) {
-      res.status(404).json({ error: 'category unavailable' });
+      res.json({ error: 'category unavailable' });
       return;
     }
     res.json(category);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'fail' });
+    res.json({ error: 'fail' });
   }
 });
 
@@ -29,10 +29,10 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const category = await Category.create(req.body);
-    res.status(201).json(category);
+    res.json(category);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'fail' });
+    res.json({ error: 'fail' });
   }
 });
 
@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'fail' });
+    res.json({ error: 'fail' });
   }
 });
 
@@ -58,11 +58,11 @@ router.delete('/:id', async (req, res) => {
       where: { id: req.params.id }
     });
     if (deleted) {
-      res.status(204).end();
+      res.end();
     } 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'fail' });
+    res.json({ error: 'fail' });
   }
 });
 

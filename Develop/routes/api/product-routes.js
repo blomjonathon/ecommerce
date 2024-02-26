@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     res.json(products);
   } catch (err) {
     console.error(err);
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
@@ -26,12 +26,12 @@ router.get('/:id', async (req, res) => {
       ]
     });
     if (!product) {
-      res.status(404).json({ message: 'no product found' });
+      res.json({ message: 'no product found' });
     }
     res.json(product);
   } catch (err) {
     console.error(err);
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
@@ -48,9 +48,9 @@ router.post('/', (req, res) => {
         });
         return ProductTag.bulkCreate(productTagIdArr);
       }
-      res.status(200).json(product);
+      res.json(product);
     })
-    .then((productTagIds) => res.status(200).json(productTagIds))
+    .then((productTagIds) => res.json(productTagIds))
 });
 
 router.put('/:id', (req, res) => {
@@ -86,7 +86,7 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
@@ -99,14 +99,14 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!product) {
-      res.status(404).json({ message: 'product id not found' });
+      res.json({ message: 'product id not found' });
       return;
     }
 
     res.status(200).json({ message: 'product deleted' });
   } catch (err) {
     console.error(err);
-    res.status(500).json(err);
+    res.json(err);
   }
 });
 
