@@ -47,7 +47,6 @@ router.put('/:id', async (req, res) => {
       res.json(category);
     }
   } catch (error) {
-    console.error(error);
     res.json({ error: 'fail' });
   }
 });
@@ -61,7 +60,6 @@ router.delete('/:id', async (req, res) => {
       res.end();
     } 
   } catch (error) {
-    console.error(error);
     res.json({ error: 'fail' });
   }
 });
